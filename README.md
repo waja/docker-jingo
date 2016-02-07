@@ -1,7 +1,7 @@
 Starts [Jingo](https://github.com/MakingAwesome/jingo) wiki server (See http://jingo.cica.li:6067/wiki/home for live demo). Mount a Git repository at ```/opt/wiki-content``` or let the startup script create the repo for you.
 
 ```
-JONGO_EXPORT_PATH="/srv/docker/jingo"; docker run --rm -v $(JONGO_EXPORT_PATH)/config/:/opt/jingo/config/ -v $(JONGO_EXPORT_PATH)/data/:/opt/wiki-content -e 'JINGO_APPLICATION_TITLE=My Amazing Wiki' -p 8080:8080 waja/jingo
+JONGO_EXPORT_PATH="/srv/docker/jingo"; docker run --rm -v ${JONGO_EXPORT_PATH}/config/:/opt/jingo/config/ -v ${JONGO_EXPORT_PATH}/data/:/opt/wiki-content -e 'JINGO_APPLICATION_TITLE=My Amazing Wiki' -p 8080:8080 waja/jingo
 ```
 
 ## Environment variables
