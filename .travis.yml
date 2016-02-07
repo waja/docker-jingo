@@ -1,0 +1,17 @@
+sudo: required
+dist: trusty
+language: c
+
+env:
+  global:
+    - JONGO_EXPORT_PATH="/srv/docker/jingo"
+
+services:
+  - docker
+
+install:
+  - docker build -t waja/jingo .
+  - docker run -d -v ${JONGO_EXPORT_PATH}/config/:/opt/jingo/config/ -v ${JONGO_EXPORT_PATH}/data/:/opt/wiki-content -e 'JINGO_APPLICATION_TITLE=My Amazing Wiki' -e 'JINGO_PORT=8080' -p 8080:8080 --name jingo waja/jingo
+
+script:
+  - docker ps | grep -q jingo
