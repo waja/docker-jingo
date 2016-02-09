@@ -4,7 +4,7 @@ FROM mhart/alpine-node:latest
 MAINTAINER Jan Wagner "waja@cyconet.org"
 
 # Install dependencies
-RUN apk --update add --virtual build-dependencies git ca-certificates && \
+RUN apk --no-cache add --virtual build-dependencies git ca-certificates && \
   # Pull jingo source
   git clone https://github.com/claudioc/jingo.git /opt/jingo && cd /opt/jingo && \
   # Checkout latest tag
