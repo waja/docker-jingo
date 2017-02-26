@@ -7,8 +7,6 @@ JINGO_REPOSITORY="${JINGO_REPOSITORY:-/opt/wiki-content}"
 JINGO_HOSTNAME="${JINGO_HOSTNAME:-localhost}"
 JINGO_PORT="${JINGO_PORT:-8080}"
 
-mkdir -p "$JINGO_REPOSITORY"
-
 if [ ! -d "$JINGO_REPOSITORY/.git" ]; then
   OR=$(pwd)
   mkdir -p "$JINGO_REPOSITORY"
