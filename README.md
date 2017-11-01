@@ -1,11 +1,11 @@
 # Docker-Jingo
 
 [![Build Status](https://travis-ci.org/Cyconet/docker-jingo.svg?branch=development)](https://travis-ci.org/Cyconet/docker-jingo)
-[![Docker Build Status](https://img.shields.io/docker/build/waja/jingo.svg)](https://hub.docker.com/r/waja/docker-radicale/)
-[![GitHub tag](https://img.shields.io/github/tag/waja/jingo.svg)](https://github.com/waja/docker-radicale/tags)
-[![](https://img.shields.io/docker/pulls/waja/jingo.svg)](https://hub.docker.com/r/waja/docker-radicale/)
-[![](https://img.shields.io/docker/stars/waja/jingo.svg)](https://hub.docker.com/r/waja/docker-radicale/)
-[![](https://img.shields.io/docker/automated/waja/jingo.svg)](https://hub.docker.com/r/waja/docker-radicale/)
+[![Docker Build Status](https://img.shields.io/docker/build/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
+[![GitHub tag](https://img.shields.io/github/tag/Cyconet/jingo.svg)](https://github.com/Cyconet/jingo/tags)
+[![](https://img.shields.io/docker/pulls/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
+[![](https://img.shields.io/docker/stars/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
+[![](https://img.shields.io/docker/automated/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
 
 Starts [Jingo](https://github.com/claudioc/jingo) wiki server (See http://jingo.cica.li:6067/wiki/home for live demo). Mount a Git repository at ```/opt/wiki-content``` or let the startup script create the repo for you.
 
