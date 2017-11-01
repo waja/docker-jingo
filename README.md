@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Cyconet/docker-jingo.svg?branch=development)](https://travis-ci.org/Cyconet/docker-jingo)
 [![Docker Build Status](https://img.shields.io/docker/build/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
-[![GitHub tag](https://img.shields.io/github/tag/Cyconet/jingo.svg)](https://github.com/Cyconet/jingo/tags)
+[![GitHub tag](https://img.shields.io/github/tag/Cyconet/docker-jingo.svg)](https://github.com/Cyconet/docker-jingo/tags)
 [![](https://img.shields.io/docker/pulls/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
 [![](https://img.shields.io/docker/stars/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
 [![](https://img.shields.io/docker/automated/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
