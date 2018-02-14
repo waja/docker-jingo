@@ -1,5 +1,7 @@
 # Docker-Jingo
 
+[![](https://images.microbadger.com/badges/version/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
+[![](https://images.microbadger.com/badges/image/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
 [![Build Status](https://travis-ci.org/Cyconet/docker-jingo.svg?branch=development)](https://travis-ci.org/Cyconet/docker-jingo)
 [![Docker Build Status](https://img.shields.io/docker/build/waja/jingo.svg)](https://hub.docker.com/r/waja/jingo/)
 [![GitHub tag](https://img.shields.io/github/tag/Cyconet/docker-jingo.svg)](https://github.com/Cyconet/docker-jingo/tags)
