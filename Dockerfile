@@ -22,8 +22,9 @@ LABEL org.label-schema.name="jingo - Node.js based Wiki" \
     org.label-schema.vcs-ref=$VCS_REF \
     org.label-schema.vcs-branch=$VCS_BRANCH
 
-# Install dependencies
-RUN apk --no-cache add --virtual build-dependencies ca-certificates tar curl jq && \
+RUN apk --no-cache update && apk --no-cache upgrade && \
+  # Install dependencies
+  apk --no-cache add --virtual build-dependencies ca-certificates tar curl jq && \
   # Create directory
   mkdir -p /opt/jingo && cd /opt/jingo && \
   # Download latest release
