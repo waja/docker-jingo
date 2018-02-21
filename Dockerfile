@@ -9,6 +9,8 @@ ARG "VCS_URL=unknown"
 ARG "VCS_REF=unknown"
 ARG "VCS_BRANCH=unknown"
 
+ENV "GIT_PROJECT=claudioc/jingo"
+
 # See http://label-schema.org/rc1/ and https://microbadger.com/labels
 LABEL org.label-schema.name="jingo - Node.js based Wiki" \
     org.label-schema.description="Git based wiki engine written for node.js, with a decent design, a search capability and a good typography on Alpine Linux based container" \
@@ -21,13 +23,11 @@ LABEL org.label-schema.name="jingo - Node.js based Wiki" \
     org.label-schema.vcs-branch=$VCS_BRANCH
 
 # Install dependencies
-RUN apk --no-cache add --virtual build-dependencies git ca-certificates && \
-  # Pull jingo source
-  git clone https://github.com/claudioc/jingo.git /opt/jingo && cd /opt/jingo && \
-  # Checkout latest tag
-  LATEST_TAG=$(git tag -l 'v*.[0-9]' --sort='v:refname'| tail -1); git checkout $LATEST_TAG -b $LATEST_TAG && \
-  # Set global git config
-  git config --global user.name "Jingo Wiki" && git config --global user.email "everyone@jingo" && \
+RUN apk --no-cache add --virtual build-dependencies ca-certificates tar curl jq && \
+  # Create directory
+  mkdir -p /opt/jingo && cd /opt/jingo && \
+  # Download latest release
+  curl -L $(curl -s https://api.github.com/repos/$GIT_PROJECT/releases/latest | jq -r ".tarball_url") | tar xz --strip=1 && \
   # Install npm depenencies
   npm install && \
   # Adjust configuration path in package.json script
