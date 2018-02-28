@@ -22,8 +22,14 @@ LABEL org.label-schema.name="jingo - Node.js based Wiki" \
 
 # Install dependencies
 RUN apk --no-cache add --virtual build-dependencies git ca-certificates && \
-  # Pull jingo source
-  git clone https://github.com/claudioc/jingo.git /opt/jingo && cd /opt/jingo && \
+  # Create unprivileged user account
+  mkdir /opt /opt/wiki-content && adduser -S jingo -h /opt/jingo && chown jingo /opt/wiki-content
+
+# Drop to unprivileged user
+USER jingo
+
+# Pull jingo source
+RUN git clone https://github.com/claudioc/jingo.git /opt/jingo && cd /opt/jingo && \
   # Checkout latest tag
   LATEST_TAG=$(git tag -l 'v*.[0-9]' --sort='v:refname'| tail -1); git checkout $LATEST_TAG -b $LATEST_TAG && \
   # Set global git config
@@ -38,3 +44,4 @@ RUN apk --no-cache add --virtual build-dependencies git ca-certificates && \
 WORKDIR /opt/jingo
 ADD start.sh /opt/jingo/start.sh
 CMD /bin/sh /opt/jingo/start.sh
+
