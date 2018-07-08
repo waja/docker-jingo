@@ -3,11 +3,11 @@ FROM mhart/alpine-node:latest
 # Dockerfile Maintainer
 MAINTAINER Jan Wagner "waja@cyconet.org"
 
-ARG "BUILD_DATE=unknown"
-ARG "BUILD_VERSION=unknown"
-ARG "VCS_URL=unknown"
-ARG "VCS_REF=unknown"
-ARG "VCS_BRANCH=unknown"
+ARG BUILD_DATE
+ARG BUILD_VERSION
+ARG VCS_URL
+ARG VCS_REF
+ARG VCS_BRANCH
 
 ENV GIT_PROJECT=claudioc/jingo
 
@@ -16,11 +16,11 @@ LABEL org.label-schema.name="jingo - Node.js based Wiki" \
     org.label-schema.description="Git based wiki engine written for node.js, with a decent design, a search capability and a good typography on Alpine Linux based container" \
     org.label-schema.vendor="Cyconet" \
     org.label-schema.schema-version="1.0" \
-    org.label-schema.build-date=$BUILD_DATE \
-    org.label-schema.version=$BUILD_VERSION \
-    org.label-schema.vcs-url=$VCS_URL \
-    org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-branch=$VCS_BRANCH
+    org.label-schema.build-date="${BUILD_DATE:-unknown}" \
+    org.label-schema.version="${BUILD_VERSION:-unknown}" \
+    org.label-schema.vcs-url="${VCS_URL:-unknown}" \
+    org.label-schema.vcs-ref="${VCS_REF:-unknown}" \
+    org.label-schema.vcs-branch="${VCS_BRANCH:-unknown}"
 
 RUN apk --no-cache update && apk --no-cache upgrade && \
   # Install dependencies
