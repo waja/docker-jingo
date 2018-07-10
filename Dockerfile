@@ -24,7 +24,7 @@ LABEL org.label-schema.name="jingo - Node.js based Wiki" \
 
 RUN apk --no-cache update && apk --no-cache upgrade && \
   # Install dependencies
-  apk --no-cache add --virtual build-dependencies ca-certificates tar curl jq && \
+  apk --no-cache add --virtual build-dependencies ca-certificates tar curl jq git && \
   # Create directory
   mkdir -p /opt/jingo && cd /opt/jingo && \
   # Download latest release
