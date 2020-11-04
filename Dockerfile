@@ -1,3 +1,4 @@
+# hadolint ignore=DL3007
 FROM mhart/alpine-node:latest
 
 ARG BUILD_DATE
@@ -19,13 +20,16 @@ LABEL org.label-schema.name="jingo - Node.js based Wiki" \
     org.label-schema.vcs-ref="${VCS_REF:-unknown}" \
     org.label-schema.vcs-branch="${VCS_BRANCH:-unknown}"
 
+# hadolint ignore=DL3017,DL3018
 RUN apk --no-cache update && apk --no-cache upgrade && \
   # Install dependencies
   apk --no-cache add --virtual build-dependencies ca-certificates tar curl jq git && \
   # Create directory
-  mkdir -p /opt/jingo && cd /opt/jingo && \
-  # Download latest release
-  curl -L $(curl -s https://api.github.com/repos/$GIT_PROJECT/releases/latest | jq -r ".tarball_url") | tar xz --strip=1 && \
+  mkdir -p /opt/jingo
+WORKDIR /opt/jingo
+# Download latest release
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+RUN curl -L "$(curl -s https://api.github.com/repos/$GIT_PROJECT/releases/latest | jq -r ".tarball_url")" | tar xz --strip=1 && \
   # Install npm depenencies
   npm install && \
   # Adjust configuration path in package.json script
@@ -34,5 +38,5 @@ RUN apk --no-cache update && apk --no-cache upgrade && \
   mkdir -p /opt/jingo/config
 
 WORKDIR /opt/jingo
-ADD start.sh /opt/jingo/start.sh
-CMD /bin/sh /opt/jingo/start.sh
+COPY start.sh /opt/jingo/start.sh
+CMD ["/bin/sh", "/opt/jingo/start.sh"]
