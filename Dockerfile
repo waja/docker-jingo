@@ -32,7 +32,7 @@ WORKDIR /opt/jingo
 # Download latest release
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN curl -L "$(curl -s https://api.github.com/repos/$GIT_PROJECT/releases/latest | jq -r ".tarball_url")" | tar xz --strip=1 && \
-  # Install npm depenencies
+  # Install npm dependencies
   npm install && \
   # Adjust configuration path in package.json script
   sed -ri 's#"./jingo -c config.yaml"#"./jingo -c config/config.yaml"#' /opt/jingo/package.json && \
