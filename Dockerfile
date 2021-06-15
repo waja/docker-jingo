@@ -10,7 +10,8 @@ ARG VCS_BRANCH
 ENV GIT_PROJECT=claudioc/jingo
 
 # See http://label-schema.org/rc1/ and https://microbadger.com/labels
-LABEL org.label-schema.name="jingo - Node.js based Wiki" \
+LABEL maintainer="Jan Wagner <waja@cyconet.org>" \
+    org.label-schema.name="jingo - Node.js based Wiki" \
     org.label-schema.description="Git based wiki engine written for node.js, with a decent design, a search capability and a good typography on Alpine Linux based container" \
     org.label-schema.vendor="Cyconet" \
     org.label-schema.schema-version="1.0" \
